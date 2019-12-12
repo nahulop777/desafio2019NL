@@ -22,18 +22,6 @@ public class Controller {
         });
     }
 
-    //public PeopleController(PeopleDAO.ShowError showError) {
-    //        this.peopleDAO = new PeopleDAO();
-    //        peopleDAO.setShowError(showError);
-    //    }
-    //
-    //    public void getUserList(final ResultListener<Results> listener){
-    //        peopleDAO.getUserList(new ResultListener<Results>() {
-    //            @Override
-    //            public void onFinish(Results result) {
-    //                listener.onFinish(result);
-    //            }
-    //        });
-    //    }
+    
 
 }
