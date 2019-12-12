@@ -21,7 +21,6 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.myapplication.Controller.Controller;
-import com.example.myapplication.Dao.Dao;
 import com.example.myapplication.R;
 import com.example.myapplication.model.User;
 import com.example.myapplication.model.UserContainer;
@@ -53,7 +52,7 @@ public class FragmentHome extends Fragment implements AdapterUser.UserAdapterLis
 
         private List<User> userList = new ArrayList<>();
         private ArrayAdapter<String> arrayAdapter;
-        private Map<String, User> nickMap = new HashMap<>();
+        private Map<String, User> userMap = new HashMap<>();
         private List<String> nickList = new ArrayList<>();
         private List<String> arrayItems = new ArrayList<>();
         private notificador unNotificador;
@@ -73,7 +72,6 @@ public class FragmentHome extends Fragment implements AdapterUser.UserAdapterLis
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
             View view = inflater.inflate(R.layout.fragment_home, container, false);
             ButterKnife.bind(this, view);
 
@@ -124,7 +122,7 @@ public class FragmentHome extends Fragment implements AdapterUser.UserAdapterLis
                 recyclerViewHomeFragment.setItemViewCacheSize(20);
                 for (User person : userList) {
                     String nick = person.getLogin().getUsername();
-                    nickMap.put(nick, person);
+                    userMap.put(nick, person);
                     nickList.add(nick);
                 }
                 itemClick();
@@ -139,7 +137,7 @@ public class FragmentHome extends Fragment implements AdapterUser.UserAdapterLis
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String listItem = (String) parent.getAdapter().getItem(position);
-                    User user = nickMap.get(listItem);
+                    User user = userMap.get(listItem);
                     Bundle bundle = new Bundle();
                     Intent intent = new Intent(getActivity(), DetalleActivity.class);
                     bundle.putSerializable(DetalleActivity.KEY_USER, user);

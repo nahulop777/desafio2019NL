@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.model.User;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,18 +21,18 @@ public class DetalleActivity extends AppCompatActivity {
     public static final String KEY_USER = "usuario";
 
 
-    @BindView(R.id.imageViewPhotoDetailsActivity)
-    ImageView imageViewPhotoDetailsActivity;
+    @BindView(R.id.imagenUser)
+    ImageView imageViewImagenUser;
     @BindView(R.id.nombre)
-    TextView textViewNameDetailsActivity;
+    TextView textViewNombre;
     @BindView(R.id.apellido)
-    TextView textViewLastNameDetailsActivity;
+    TextView textViewApellido;
     @BindView(R.id.edad)
-    TextView textViewAgeDetailsActivity;
+    TextView textViewEdad;
     @BindView(R.id.email)
-    TextView textViewMailDetailsActivity;
+    TextView textViewMail;
     @BindView(R.id.buttonMap)
-    Button buttonMap;
+    Button buttonbuttonMap;
 
 
     @Override
@@ -48,14 +47,14 @@ public class DetalleActivity extends AppCompatActivity {
 
         final User user = (User) bundle.getSerializable(KEY_USER);
 
-        Glide.with(this).load(user.getPicture().getLarge()).into(imageViewPhotoDetailsActivity);
-        textViewNameDetailsActivity.setText(user.getName().getFirst());
-        textViewLastNameDetailsActivity.setText(user.getName().getLast());
+        Glide.with(this).load(user.getPicture().getLarge()).into(imageViewImagenUser);
+        textViewNombre.setText(user.getName().getFirst());
+        textViewApellido.setText(user.getName().getLast());
         String edad = user.getDob().getAge() + " años de edad";
-        textViewAgeDetailsActivity.setText(edad);
-        textViewMailDetailsActivity.setText(user.getEmail());
+        textViewEdad.setText(edad);
+        textViewMail.setText(user.getEmail());
 
-        buttonMap.setOnClickListener(new View.OnClickListener() {
+        buttonbuttonMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetalleActivity.this, MapaActivity.class);

@@ -52,9 +52,9 @@ public class AdapterUser extends RecyclerView.Adapter {
     class UserViewHolder extends RecyclerView.ViewHolder{
 
         @BindView(R.id.userFoto)
-        ImageView imageViewPersonItem;
+        ImageView ImageViewUser;
         @BindView(R.id.username)
-        TextView textViewNickPersonItem;
+        TextView textViewUserItem;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,8 +71,8 @@ public class AdapterUser extends RecyclerView.Adapter {
 
         }
         public void bind(User user){
-            Glide.with(itemView).load(user.getPicture().getLarge()).into(imageViewPersonItem);
-            textViewNickPersonItem.setText(user.getLogin().getUsername());
+            Glide.with(itemView).load(user.getPicture().getLarge()).into(ImageViewUser);
+            textViewUserItem.setText(user.getLogin().getUsername());
 
         }
     }
